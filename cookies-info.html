@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Cookies Info</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">// lab3</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="preferences.html">⚙️ Preferințe</a>
+    <a href="cookies-info.html" class="active">🍪 Cookies Info</a>
+    <a href="login.html">🔐 Autentificare</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Temă</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>🍪 Inspector <span>Stocare</span></h1>
+    <p>Vizualizează și gestionează toate datele stocate în browser.</p>
+  </div>
+
+  <!-- COOKIES SECTION -->
+  <div class="card">
+    <h2><span class="icon">🍪</span> Cookie-uri</h2>
+    <p style="font-size:0.82rem; color:var(--muted); margin-bottom:12px; font-weight:600;">Valoare brută <code>document.cookie</code>:</p>
+    <div class="code-block" id="raw-cookies">—</div>
+    <br>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nume</th><th>Valoare</th><th>Lungime</th><th>Acțiune</th></tr></thead>
+        <tbody id="cookies-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- LOCAL STORAGE SECTION -->
+  <div class="card">
+    <h2><span class="icon">💾</span> localStorage</h2>
+    <p style="font-size:0.82rem; color:var(--muted); margin-bottom:12px; font-weight:600;">Date serializate JSON:</p>
+    <div class="code-block" id="raw-local">—</div>
+    <br>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th><th>Acțiune</th></tr></thead>
+        <tbody id="local-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SESSION STORAGE SECTION -->
+  <div class="card">
+    <h2><span class="icon">⏱️</span> sessionStorage</h2>
+    <p style="font-size:0.82rem; color:var(--muted); margin-bottom:12px; font-weight:600;">Date serializate JSON:</p>
+    <div class="code-block" id="raw-session">—</div>
+    <br>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th><th>Acțiune</th></tr></thead>
+        <tbody id="session-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="card">
+    <h2><span class="icon">📊</span> Tabel Comparativ</h2>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Caracteristică</th>
+            <th>🍪 Cookies</th>
+            <th>💾 localStorage</th>
+            <th>⏱️ sessionStorage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;">Capacitate</td>
+            <td>~4 KB / cookie</td>
+            <td>~5–10 MB</td>
+            <td>~5–10 MB</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Expirare</td>
+            <td>Setabilă manual</td>
+            <td>Niciodată (manual)</td>
+            <td>La închiderea tab-ului</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Trimis la server?</td>
+            <td><span class="badge badge-green">✅ Da</span></td>
+            <td><span class="badge badge-red">❌ Nu</span></td>
+            <td><span class="badge badge-red">❌ Nu</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Accesibil din</td>
+            <td>JS + Server (HTTP)</td>
+            <td>Doar JavaScript</td>
+            <td>Doar JavaScript</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Partajat între tab-uri?</td>
+            <td><span class="badge badge-green">✅ Da</span></td>
+            <td><span class="badge badge-green">✅ Da</span></td>
+            <td><span class="badge badge-red">❌ Nu</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">Criptare</td>
+            <td>Opțional (Secure flag)</td>
+            <td>Nu</td>
+            <td>Nu</td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;">API</td>
+            <td><code>document.cookie</code></td>
+            <td><code>localStorage.*</code></td>
+            <td><code>sessionStorage.*</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Laborator 3 — Cookies Info</span>
+    <a href="index.html" class="btn btn-secondary btn-sm">← Înapoi acasă</a>
+  </div>
+</div>
+
+<script src="js/cookies.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/cookies-info.js"></script>
+
+</body>
+</html>

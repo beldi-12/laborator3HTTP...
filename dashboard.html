@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">// lab3</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="dashboard.html" class="active">📊 Dashboard</a>
+    <a href="cart.html">🛒 Coș</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Temă</button>
+    <button class="btn btn-danger btn-sm" onclick="logout()">⏻ Deconectare</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>📊 Dashboard — <span id="welcome-name">...</span></h1>
+    <p>Sesiunea ta activă · <span class="badge badge-green">● Conectat</span></p>
+  </div>
+
+  <!-- Session info -->
+  <div class="card">
+    <h2><span class="icon">🔑</span> Informații Sesiune</h2>
+    <div class="session-info">
+      <div class="info-item">
+        <div class="info-label">ID Sesiune</div>
+        <div class="info-val" id="sess-id">—</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Username</div>
+        <div class="info-val" id="sess-username">—</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Email</div>
+        <div class="info-val" id="sess-email">—</div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Ora autentificării</div>
+        <div class="info-val" id="sess-login-time">—</div>
+      </div>
+      <div class="info-item" style="grid-column: 1 / -1; background: rgba(108,99,255,0.06); border-color: var(--accent);">
+        <div class="info-label">⏱️ Durată sesiune (actualizată live)</div>
+        <div class="info-val" id="sess-duration" style="font-size:1.4rem;">00:00:00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="card">
+    <h2><span class="icon">🚀</span> Acțiuni Rapide</h2>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="cart.html" class="btn btn-primary">🛒 Coș de Cumpărături</a>
+      <a href="index.html" class="btn btn-secondary">🏠 Pagina Principală</a>
+      <button class="btn btn-secondary" onclick="openNewTab()">🗗 Deschide Tab Nou</button>
+      <button class="btn btn-danger" onclick="logout()">⏻ Deconectare</button>
+    </div>
+    <div style="margin-top:16px; padding:12px; background:rgba(255,101,132,0.08); border-radius:var(--radius); border:1.5px dashed rgba(255,101,132,0.3); font-size:0.85rem; color:var(--muted);">
+      💡 <strong>Experiment:</strong> Deschide un tab nou cu butonul de mai sus. sessionStorage va fi <strong>gol</strong> în noul tab — fiecare tab are propria sesiune izolată!
+    </div>
+  </div>
+
+  <!-- Raw session data -->
+  <div class="card">
+    <h2><span class="icon">🔍</span> Date Brute sessionStorage (Debug)</h2>
+    <div class="code-block" id="raw-session">Se încarcă...</div>
+  </div>
+
+  <div class="page-footer">
+    <span>Laborator 3 — Dashboard</span>
+    <span id="footer-time"></span>
+  </div>
+</div>
+
+<script src="js/cookies.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

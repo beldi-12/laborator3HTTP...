@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Pagina Principală</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">// lab3</a>
+    <a href="index.html" class="active">🏠 Acasă</a>
+    <a href="preferences.html">⚙️ Preferințe</a>
+    <a href="cookies-info.html">🍪 Cookies Info</a>
+    <a href="login.html">🔐 Autentificare</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Temă</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>Bun venit, <span id="username-display">Vizitator</span>! 👋</h1>
+    <p id="visit-message">Se încarcă informațiile despre vizite...</p>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-val" id="visit-count">0</div>
+      <div class="stat-lbl">Vizite totale</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="cookie-count">0</div>
+      <div class="stat-lbl">Cookies active</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="local-count">0</div>
+      <div class="stat-lbl">Intrări localStorage</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" id="session-count">0</div>
+      <div class="stat-lbl">Intrări sessionStorage</div>
+    </div>
+  </div>
+
+  <!-- Cookies table -->
+  <div class="card">
+    <h2><span class="icon">🍪</span> Cookie-uri Active</h2>
+    <div class="table-wrap">
+      <table id="cookies-table">
+        <thead>
+          <tr><th>Nume</th><th>Valoare</th><th>Lungime</th><th>Acțiune</th></tr>
+        </thead>
+        <tbody id="cookies-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- localStorage table -->
+  <div class="card">
+    <h2><span class="icon">💾</span> Date localStorage</h2>
+    <div class="table-wrap">
+      <table id="local-table">
+        <thead>
+          <tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th></tr>
+        </thead>
+        <tbody id="local-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- sessionStorage table -->
+  <div class="card">
+    <h2><span class="icon">⏱️</span> Date sessionStorage</h2>
+    <div class="table-wrap">
+      <table id="session-table">
+        <thead>
+          <tr><th>Cheie</th><th>Valoare</th><th>Dimensiune</th></tr>
+        </thead>
+        <tbody id="session-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding: 10px 0;">
+    <button class="btn btn-danger" onclick="deleteAll()" style="font-size:0.95rem; padding:12px 28px;">
+      🗑️ Șterge Tot (Cookies + Storage)
+    </button>
+  </div>
+
+  <div class="page-footer">
+    <span>Laborator 3 — HTTP, Cookies & Sesiuni</span>
+    <span id="footer-time"></span>
+  </div>
+</div>
+
+<script src="js/cookies.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

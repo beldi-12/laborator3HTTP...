@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Înregistrare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">// lab3</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="preferences.html">⚙️ Preferințe</a>
+    <a href="cookies-info.html">🍪 Cookies Info</a>
+    <a href="login.html">🔐 Autentificare</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Temă</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>📝 <span>Înregistrare</span> Cont Nou</h1>
+    <p>Creează-ți un cont pentru a accesa toate funcționalitățile.</p>
+  </div>
+
+  <div class="card" style="max-width: 440px; margin: 0 auto;">
+    <h2><span class="icon">✨</span> Cont Nou</h2>
+    <div id="alert-box" class="alert"></div>
+
+    <form id="register-form" onsubmit="handleRegister(event)">
+      <div class="form-group">
+        <label for="username">Username <span style="color:var(--muted); font-weight:400;">(minim 3 caractere)</span></label>
+        <input type="text" id="username" placeholder="Ex: student01" minlength="3" required>
+        <span id="err-username" style="color:#ff4757; font-size:0.78rem; display:none; margin-top:4px; display:none;"></span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Ex: student@example.com" required>
+        <span id="err-email" style="color:#ff4757; font-size:0.78rem; margin-top:4px; display:none;"></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Parolă <span style="color:var(--muted); font-weight:400;">(minim 6 caractere)</span></label>
+        <input type="password" id="password" placeholder="••••••••" minlength="6" required>
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirmare Parolă</label>
+        <input type="password" id="password2" placeholder="••••••••" required>
+        <span id="err-password" style="color:#ff4757; font-size:0.78rem; margin-top:4px; display:none;"></span>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+        🎉 Creează Contul
+      </button>
+    </form>
+
+    <hr>
+    <div style="text-align:center;">
+      <p style="font-size:0.85rem; color:var(--muted);">Ai deja cont?
+        <a href="login.html" style="color:var(--accent); font-weight:700;">Autentifică-te →</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>Laborator 3 — Înregistrare</span>
+    <a href="login.html" class="btn btn-secondary btn-sm">← Înapoi la login</a>
+  </div>
+</div>
+
+<script src="js/cookies.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/register.js"></script>
+
+</body>
+</html>

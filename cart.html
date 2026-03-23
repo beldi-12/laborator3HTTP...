@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Coș Cumpărături</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="brand">// lab3</a>
+    <a href="index.html">🏠 Acasă</a>
+    <a href="dashboard.html">📊 Dashboard</a>
+    <a href="cart.html" class="active">🛒 Coș</a>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 Temă</button>
+    <button class="btn btn-danger btn-sm" onclick="logout()">⏻ Deconectare</button>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero">
+    <h1>🛒 Coș de <span>Cumpărături</span></h1>
+    <p>Conectat ca: <strong id="logged-user">—</strong> · Coșul se salvează în sessionStorage.</p>
+  </div>
+
+  <!-- Add product -->
+  <div class="card" style="max-width:480px;">
+    <h2><span class="icon">➕</span> Adaugă Produs</h2>
+    <form id="add-form" onsubmit="addToCart(event)">
+      <div class="form-group">
+        <label for="product">Produs</label>
+        <select id="product">
+          <option value="laptop">💻 Laptop — 2,500 RON</option>
+          <option value="telefon">📱 Telefon — 1,200 RON</option>
+          <option value="tableta">📟 Tabletă — 800 RON</option>
+          <option value="casti">🎧 Căști — 150 RON</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="qty">Cantitate (1–10)</label>
+        <input type="number" id="qty" value="1" min="1" max="10">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+        🛒 Adaugă în Coș
+      </button>
+    </form>
+  </div>
+
+  <!-- Cart display -->
+  <div class="card">
+    <h2><span class="icon">🧾</span> Produse în Coș <span id="item-count" class="badge badge-purple" style="margin-left:6px;">0</span></h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Produs</th><th>Cantitate</th><th>Preț Unitar</th><th>Subtotal</th><th>Acțiune</th></tr>
+        </thead>
+        <tbody id="cart-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="total-row">
+      <span class="total-label">Total:</span>
+      <span class="total-val" id="cart-total">0 RON</span>
+    </div>
+
+    <div style="margin-top:16px; display:flex; justify-content:flex-end;">
+      <button class="btn btn-danger" onclick="clearCart()">🗑️ Golește Coșul</button>
+    </div>
+  </div>
+
+  <div style="padding:12px 0; font-size:0.82rem; color:var(--muted); text-align:center;">
+    💡 Coșul este stocat în <strong>sessionStorage</strong> — se pierde dacă închidem tab-ul sau ne deconectăm.
+  </div>
+
+  <div class="page-footer">
+    <span>Laborator 3 — Coș Cumpărături</span>
+    <a href="dashboard.html" class="btn btn-secondary btn-sm">← Dashboard</a>
+  </div>
+</div>
+
+<script src="js/cookies.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/cart.js"></script>
+
+</body>
+</html>
